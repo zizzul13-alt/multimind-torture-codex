@@ -1,0 +1,9 @@
+.venv/
+__pycache__/
+*.py[cod]
+.reflex/
+web/
+assets/.web/
+.pytest_cache/
+playwright-report/
+test-results/
