@@ -1,0 +1,18 @@
+"""FastHTML entrypoint for the isolated MultiMind platform torture benchmark."""
+from fasthtml.common import *
+from starlette.responses import FileResponse
+
+app, rt = fast_app(hdrs=(Link(rel="stylesheet", href="/static/app.css"), Script(src="/static/app.js", defer=True)))
+
+@rt("/")
+def get():
+    return Title("MultiMind — FastHTML Torture Proof"), Main(NotStr('''
+<section class="intro"><p class="eyebrow">FastHTML / independent platform torture test</p><h1>A medium for thought,<br><em>not a dashboard.</em></h1><p class="lede">Four interaction languages and one sustained MultiMind session. Scroll to disturb the material planes.</p><a class="enter" href="#multimind">Enter the session ↘</a><div class="orb orb-one"></div><div class="orb orb-two"></div></section>
+<section class="proofs" aria-label="Reference parity proofs"><article class="proof ark"><p>01 / ARKNIGHTS</p><h2>Signal under<br>weather.</h2><span>Layered material, loading pulse, clipped horizon</span><i class="sun"></i></article><article class="proof noomo"><p>02 / NOOMO</p><h2>Pull the<br>axis.</h2><span>Pointer-reactive plane and scroll-linked drift</span><i class="axis"></i></article><article class="proof dior"><p>03 / DIORIVIERA</p><h2>Quietly<br>composed.</h2><span>Material-led editorial restraint</span><i class="petal"></i></article><article class="proof viens"><p>04 / VIENS-LÀ</p><h2>Words<br>navigate.</h2><span>Typography-led composition and deliberate rules</span><i class="rule"></i></article></section>
+<section id="multimind" class="multimind mode-atlas"><header class="session-head"><button class="wordmark" type="button">MULTI<br><b>MIND</b></button><div class="session-meta"><span class="live-dot"></span>SESSION 04.27 <small>urban heat / jakarta</small></div><div class="presentation-switch"><button data-mode="atlas" class="active" type="button">ATLAS</button><button data-mode="terminal" type="button">SIGNAL</button></div></header><div class="mobile-status"><span class="live-dot"></span><strong>3 AGENTS</strong><button data-mode="terminal" type="button">SHIFT</button></div><aside class="agent-field"><div class="agent-title">DELIBERATION FIELD <span>03/03</span></div><button class="agent running" data-agent="research" type="button"><i></i><b>RESEARCH</b><small>tracing evidence</small><em>62%</em></button><button class="agent waiting" data-agent="critic" type="button"><i></i><b>CRITIC</b><small>holding countercase</small><em>WAIT</em></button><button class="agent pending" data-agent="synthesis" type="button"><i></i><b>SYNTHESIS</b><small>awaiting signals</small><em>—</em></button></aside><section class="conversation" aria-live="polite"><div class="conversation-top"><p>CONVERSATION / 38 MESSAGES</p><button id="jump-latest" type="button">LATEST ↓</button></div><div id="messages" class="messages"></div><form id="composer"><label for="prompt">Add a thread to the deliberation</label><div><input id="prompt" autocomplete="off" placeholder="Offer a constraint, source, or question…"><button type="submit">SEND ↗</button></div></form></section><aside class="session-side"><p>SESSION MEMORY</p><strong>12</strong><span>sources held</span><hr><p>PRESENTATION</p><b id="mode-label">ATLAS / porous</b><button id="pulse" type="button">RE-ORIENT ↺</button></aside><nav class="mobile-nav"><button type="button">FIELD</button><button id="mobile-latest" type="button">THREAD</button><button type="button">MEMORY 12</button></nav></section><footer>Built as a FastHTML vertical slice · no provider calls · reduced motion respected</footer>
+'''), cls="shell")
+
+@rt("/static/{path:path}")
+def static(path: str): return FileResponse(f"static/{path}")
+
+serve(port=8037)
