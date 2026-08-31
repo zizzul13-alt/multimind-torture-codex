@@ -22,6 +22,10 @@ Do not use the existing MultiMind implementation as a visual shortcut.
 
 The benchmark specification in `benchmark-brief.md` is the source of truth.
 
+## SvelteKit + FastAPI candidate
+
+This branch contains the independent Svelte browser surface and FastAPI benchmark seam. See [EVIDENCE.md](EVIDENCE.md) for isolated ports, commands, dynamic validation, capability mapping, and an explicit architecture-cost assessment.
+
 A candidate is not required to win.
 
 `NO_MIGRATION_TARGET_APPROVED` is a valid final outcome.
