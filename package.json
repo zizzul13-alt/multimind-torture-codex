@@ -1,0 +1,1 @@
+{"name":"multimind-fasthtml-torture","private":true,"scripts":{"test":"node --test tests/test_contract.mjs"}}
